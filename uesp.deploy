@@ -1,0 +1,16 @@
+name = sfbuilder
+description = Starfield Character Builder
+repository = https://github.com/uesp/sfbuilder
+backup = false
+verbosity = 0
+
+staged = false
+
+ignore = *.deploy
+ignore = .hg*
+ignore = .git*
+
+dest = content1.uesp.net:/home/sfbuilder/www/
+dest = content2.uesp.net:/home/sfbuilder/www/
+dest = content3.uesp.net:/home/sfbuilder/www/
+

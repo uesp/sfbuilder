@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Starfield Builder</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="icon" href="/images/favicon.png" type="image/png" >
+	<script src="scripts/jquery-3.6.0.min.js" ></script>
+	<script src="scripts/main.js" ></script>
+</head>
+<body>
+	<div id="sfbBuilderRoot">
+		<div id="sfbHeaderRoot">
+			<div class="sfbSubTitleAELogo"><img src="images/aelogo.png" alt="AE"></div>
+			<div class="sfbTitleLogo">
+				<img src="images/sfbuilder_logo.png" alt="Starfield Builder">
+			</div>
+			<div class="sfbSubTitleLine"></div>
+			<div class="sfbSubTitle">
+				RECORD LOCATOR
+			</div>
+		</div>
+		<div id="sfbWarningRoot">
+			WARNING: This builder is currently under construction with the limited information we know about the game so far and can't yet save builds.
+		</div>
+		<div id="sfbButtonRoot">
+			<div class="sfbSmallButton">LB</div>
+			<div class="sfbButton sfbButtonSelected" tabid="Id">BIOMETRIC ID</div>
+			<div class="sfbButton" tabid="Body">BODY</div>
+			<div class="sfbButton" tabid="Face">FACE</div>
+			<div class="sfbButton" tabid="Background">BACKGROUND</div>
+			<div class="sfbButton" id="sfbTraitsButton" tabid="Traits">TRAITS: 0/3</div>
+			<div class="sfbSmallButton">RB</div>
+		</div>
+		<div id="sfbMainRoot">
+			<div id="sfbMainId" class="sfbMainTab">
+				<div class="sfbIdPanels">
+					<div class="sfbIdLeftPanel">
+						<div class="sfbTabTitle">SELECT PROFILE</div>
+						<div class="sfbPersonalRecordRoot">
+							<div id="sfbPersonalRecordNumber">1</div>
+							<div class="sfbPersonalRecordTitle">PERSONNEL RECORD</div>
+							<div class='sfbPersonalDNARoot'>
+								<div id="sfbPersonalRecordMoveLeft">&lt;</div>
+								<div id="sfbPersonalRecordDNA"><img src="/images/dna1.png"></div>
+								<div id="sfbPersonalRecordDNAMarker"></div>
+								<div id="sfbPersonalRecordMoveRight">&gt;</div>
+							</div>
+						</div>
+						<div class="sfbTabNote">
+							Note: Biometric customizations can be changed later by visiting a genetics facility.
+						</div>
+					</div>
+					<div class="sfbIdRightPanel">
+						<img id="sfbCharacterPortrait" src="/images/portraits/char1.png">
+					</div>
+				</div>
+			</div>
+			<div id="sfbMainBody" class="sfbMainTab" style="display: none;">
+				<div class="sfbBodyPanels">
+					<div class="sfbBodyLeftPanel">
+						<div class='sfbBodyNote'>Note: Body portrait is currently fixed and doesn't change with options.</div>
+						<div class="sfbBodyDialRoot">
+						</div>
+						<div class="sfbBodyTypeRoot">
+							<div class="sfbBodySubTitle">BODY TYPE</div>
+							<div class="sfbBodyType">
+								<div id="sfbBodyTypeMoveLeft">&lt;</div>
+								<div id="sfbBodyTypeValue">1</div>
+								<div id="sfbBodyTypeMoveRight">&gt;</div>
+							</div>
+						</div>
+						<div class="sfbBodyWalkStyleRoot">
+							<div class="sfbBodySubTitle">WALK STYLE</div>
+							<div class="sfbBodyWalkStyle">
+								<div id="sfbBodyWalkStyleMoveLeft">&lt;</div>
+								<div id="sfbBodyWalkStyleValue">1</div>
+								<div id="sfbBodyWalkStyleMoveRight">&gt;</div>
+							</div>
+						</div>
+						<div class="sfbBodySkinToneRoot">
+						<div id="sfbBodySkinToneNumber">1</div>
+							<div class="sfbBodySubTitle">SKIN TONE</div>
+							<div class="sfbBodySkinTone">
+								<div id="sfbBodySkinToneMoveLeft">&lt;</div>
+								<div id="sfbBodySkinToneDNA"><img src="/images/skintones.png"></div>
+								<div id="sfbBodySkinToneDNAMarker"></div>
+								<div id="sfbBodySkinToneMoveRight">&gt;</div>
+							</div>
+						</div>
+					</div>
+					<div class="sfbBodyRightPanel">
+						<img id="sfbBodyPortrait" src="/images/portraits/body6.png">
+					</div>
+				</div>
+			</div>
+			<div id="sfbMainFace" class="sfbMainTab" style="display: none;">
+				Face
+			</div>
+			<div id="sfbMainBackground" class="sfbMainTab" style="display: none;">
+				Background
+			</div>
+			<div id="sfbMainTraits" class="sfbMainTab" style="display: none;">
+				Traits
+			</div>
+		</div>
+		<div id="sfbFooterRoot">
+			<div class="sfbFooter">
+			EMPLOYEE NUMBER: <div id="sfbEmployeeNumber">12345678-ABCD</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,474 @@
+@font-face {
+	font-family: 'ely_rounded_medium';
+	src: url('/fonts/ely_rounded_medium-webfont.woff2') format('woff2'),
+		 url('/fonts/ely_rounded_medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'ely_rounded_medium';
+	background-color: #909e96;
+	color: #1c363e;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#sfbBuilderRoot {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#sfbHeaderRoot {
+	padding: 10px;
+}
+
+.sfbTitleLogo {
+	background-color: #c3ccc5;
+	border-left: 15px solid #1c363e;
+	border-right: 100px solid #acb8b0;
+	width: 25%;
+	margin-bottom: 5px
+}
+
+.sfbTitleLogo img {
+	max-height: 50px;
+}
+
+.sfbSubTitle {
+	background-color: #1c363e;
+	color: #c3ccc5;
+	height: 15px;
+	width: 25%;
+	font-size: 13px;
+	border-left: 15px solid #1c363e;
+	border-right: 100px solid #1c363e;
+	border-bottom: 3px solid #1c363e;
+	white-space: nowrap;
+}
+
+.sfbSubTitleLine {
+	height: 3px;
+	background-color: #1c363e;
+	width: 100%;
+}
+
+.sfbSubTitleAELogo {
+	float: right;
+	position: relative;
+	top: 10px;
+}
+
+#sfbButtonRoot {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+
+#sfbWarningRoot {
+	color: #900;
+	font-size: 16px;
+	width: 100%;
+	text-align: center;
+}
+
+.sfbSmallButton {
+	width: 25px;
+	border: 2px solid #1c363e;
+	border-radius: 10px;
+	padding: 3px;
+	margin: 5px;
+	font-size: 13px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+
+.sfbButton {
+	border: 1px solid #1c363e;
+	padding: 2px;
+	margin: 5px;
+	font-size: 16px;
+	display: inline-block;
+	text-align: left;
+	cursor: pointer;
+	flex-grow: 1;
+	white-space: nowrap;
+}
+
+.sfbSmallButton:hover, .sfbButton:hover {
+	background-color: #bdcbbf;
+	border: 1px solid #ddebdf;
+}
+
+.sfbButtonSelected {
+	background-color: #adbbaf;
+	border: 1px solid #adbbaf;
+}
+
+#sfbMainRoot {
+	background-color: #acbcb1;
+	flex-grow: 1;
+	min-height: 100px;
+	border-top: 2px solid #cee0d3;
+	display: flex;
+	flex-direction: column;
+}
+
+.sfbMainTab {
+	padding-left: 25px;
+	flex-grow: 1;
+}
+
+#sfbFooterRoot {
+	height: 100px;
+	background-color: #83948f;
+}
+
+.sfbFooter {
+	margin-right: 25px;
+	margin-left: 25px;
+	border-top: 2px solid #1c363e;
+	border-bottom: 2px solid #1c363e;
+	height: 80px;
+	font-size: 18px;
+	padding-left: 25px;
+	vertical-align: middle;
+	line-height: 80px;
+}
+
+#sfbEmployeeNumber {
+	font-size: 14px;
+	display: inline-block;
+	padding-left: 20px;
+}
+
+.sfbTabTitle {
+	font-size: 24px;
+	color: #76837e;
+	padding-bottom: 25px;
+}
+
+.sfbIdPanels {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.sfbIdLeftPanel {
+	position: relative;
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	min-width: 300px;
+	flex-grow: 1;
+}
+
+.sfbIdRightPanel {
+	float: right;
+	text-align: center;
+	position: relative;
+	height: 100%;
+	flex-grow: 1;
+}
+
+.sfbPersonalRecordRoot {
+	background-color: #1c363e;
+	color: #c3ccc5;
+	padding: 5px;
+}
+
+.sfbPersonalRecordTitle {
+	font-size: 16px;
+}
+
+#sfbPersonalRecordNumber {
+	font-size: 16px;
+	float: right;
+}
+
+#sfbPersonalRecordMoveLeft {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 20px;
+	cursor: pointer;
+	user-select: none;
+}
+
+#sfbPersonalRecordMoveRight {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 20px;
+	cursor: pointer;
+	user-select: none;
+}
+
+#sfbPersonalRecordMoveLeft:hover, #sfbPersonalRecordMoveRight:hover {
+	color: #fff;
+	background-color: #909e96;
+}
+
+.sfbPersonalDNARoot {
+	display: flex;
+	flex-direction: row;
+	padding-top: 10px;
+	position: relative;
+}
+
+#sfbPersonalRecordDNA {
+	display: inline-block;
+	flex-grow: 1;
+}
+
+#sfbPersonalRecordDNAMarker {
+	position: absolute;
+	height: 22px;
+	width: 8px;
+	filter: brightness(150%);
+	background-color: rgba(200, 200, 100, 1);
+	background-blend-mode: multiply;
+	left: 25px;
+}
+
+#sfbPersonalRecordDNA img {
+	width: 100%;
+	height: 22px;
+}
+
+.sfbTabNote {
+	border-top: 1px solid #1c363e;
+	border-bottom: 1px solid #1c363e;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+	margin-right: 10px;
+    padding-top: 25px;
+	position: absolute;
+	bottom: 0;
+}
+
+#sfbCharacterPortrait {
+	height: 100%;
+}
+
+.sfbBodyPanels {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.sfbBodyLeftPanel {
+	position: relative;
+	float: left;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	min-width: 300px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.sfbBodyRightPanel {
+	float: right;
+	text-align: center;
+	position: relative;
+	height: 100%;
+	flex-grow: 1;
+}
+
+#sfbBodyPortrait {
+	height: 100%;
+}
+.sfbBodyNote {
+	float: left;
+}
+
+.sfbBodyDialRoot {
+	height: 250px;
+	background-color: #bbc5be;
+}
+
+.sfbBodyTypeRoot {
+}
+
+.sfbBodyWalkStyleRoot {
+	height: 50px;
+}
+
+.sfbBodySkinToneRoot {
+	height: 50px;
+}
+
+.sfbBodySubTitle {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.sfbBodyType {
+	display: flex;
+	flex-direction: row;
+	background-color: #bbc5be;
+}
+
+#sfbBodyTypeMoveLeft {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodyTypeMoveRight {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodyTypeMoveLeft:hover, #sfbBodyTypeMoveRight:hover {
+	color: #fff;
+	background-color: #909e96;
+}
+
+#sfbBodyTypeValue {
+	padding: 5px;
+	font-size: 20px;
+	flex-grow: 1;
+	color: #6f7572;
+}
+
+.sfbBodyInputSelected {
+	background-color: #1c363e;
+	color: #bbc5be;
+}
+
+.sfbBodyBoxSelected {
+	border: 1px solid #1c363e;
+}
+
+.sfbBodyWalkStyle {
+	display: flex;
+	flex-direction: row;
+	background-color: #bbc5be;
+}
+
+#sfbBodyWalkStyleMoveLeft {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodyWalkStyleMoveRight {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodyWalkStyleMoveLeft:hover, #sfbBodyWalkStyleMoveRight:hover {
+	color: #fff;
+	background-color: #909e96;
+}
+
+#sfbBodyWalkStyleValue {
+	padding: 5px;
+	font-size: 20px;
+	flex-grow: 1;
+	color: #6f7572;
+}
+
+.sfbBodySkinTone {
+	display: flex;
+	flex-direction: row;
+	background-color: #bbc5be;
+}
+
+#sfbBodySkinToneMoveLeft {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodySkinToneMoveRight {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: #e1ebe4;;
+	padding: 5px;
+	user-select: none;
+}
+
+#sfbBodySkinToneMoveLeft:hover, #sfbBodySkinToneMoveRight:hover {
+	color: #fff;
+	background-color: #909e96;
+}
+
+#sfbBodySkinToneValue {
+	padding: 5px;
+	font-size: 20px;
+	flex-grow: 1;
+	color: #6f7572;
+}
+
+#sfbBodySkinToneDNA {
+	display: inline-block;
+	flex-grow: 1;
+}
+
+#sfbBodySkinToneDNAMarker {
+	position: absolute;
+	height: 22px;
+	width: 8px;
+	filter: brightness(20%);
+	background-color: rgba(150, 250, 250, 0.9);
+	background-blend-mode: multiply;
+	left: 40px;
+	margin-top: 5px;
+}
+
+#sfbBodySkinToneDNA img {
+	width: 100%;
+	height: 22px;
+	padding-top: 5px;
+}
+
+#sfbBodySkinToneNumber {
+	font-size: 20px;
+	float: right;
+}
