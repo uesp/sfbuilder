@@ -18,6 +18,7 @@
 			<div class="sfbTitleLogo"><img src="images/sfbuilder_logo.png" alt="Starfield Builder"></div>
 			<div class="sfbSubTitleLine"></div>
 			<div class="sfbSubTitle">RECORD LOCATOR</div>
+			<div class="sfbHeaderLink">For more info visit <a href="https://starfieldguides.com">StarfieldGuides.com</a></div>
 		</div>
 		<div id="sfbWarningRoot">
 			WARNING: This builder is currently under construction with the limited information we know about the game so far and can't yet save builds.
@@ -28,24 +29,15 @@
 			<div class="sfbButton" tabid="Body">BODY</div>
 			<div class="sfbButton" tabid="Face">FACE</div>
 			<div class="sfbButton" tabid="Background">BACKGROUND</div>
-			<div class="sfbButton" id="sfbTraitsButton" tabid="Traits">TRAITS: 0/3</div>
+			<div class="sfbButton" id="sfbTraitsButton" tabid="Traits">TRAITS: 1/3</div>
 			<div class="sfbSmallButton">RB</div>
 		</div>
 		<div id="sfbMainRoot">
 			<div id="sfbMainId" class="sfbMainTab">
 				<div class="sfbPanels">
-					<div class="sfbLeftPanel">
+					<div class="sfbLeftPanel sfbPanelPadding sfbValuePanel">
 						<div class="sfbTabTitle">SELECT PROFILE</div>
-						<div class="sfbPersonalRecordRoot">
-							<div id="sfbPersonalRecordNumber">1</div>
-							<div class="sfbPersonalRecordTitle">PERSONNEL RECORD</div>
-							<div class='sfbPersonalDNARoot'>
-								<div id="sfbPersonalRecordMoveLeft">&lt;</div>
-								<div id="sfbPersonalRecordDNA"><img src="/images/dna1.png" draggable="false"></div>
-								<div id="sfbPersonalRecordDNAMarker"></div>
-								<div id="sfbPersonalRecordMoveRight">&gt;</div>
-							</div>
-						</div>
+						<div class="sfbValueControl" id="sfbPersonnelRecord"  minvalue="1" maxvalue="16" label="BODY TYPE" dna="1"></div>
 						<div class="sfbTabNote">Note: Biometric customizations can be changed later by visiting a genetics facility.</div>
 					</div>
 					<div class="sfbRightPanel"><img id="sfbCharacterPortrait" src="/images/portraits/char1.png"></div>
@@ -53,42 +45,22 @@
 			</div>
 			<div id="sfbMainBody" class="sfbMainTab" style="display: none;">
 				<div class="sfbPanels">
-					<div class="sfbLeftPanel sfbPanelJustifyVertical">
+					<div class="sfbLeftPanel sfbPanelJustifyVertical sfbPanelPadding sfbValuePanel">
 						<div class='sfbBodyNote'>Note: Body portrait is currently fixed and doesn't change with selected options yet.</div>
-						<div class="sfbBodyDialRoot"><img class="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png"></div>
-						<div class="sfbBodyTypeRoot">
-							<div class="sfbBodySubTitle">BODY TYPE</div>
-							<div class="sfbBodyType">
-								<div id="sfbBodyTypeMoveLeft">&lt;</div>
-								<div id="sfbBodyTypeValue">1</div>
-								<div id="sfbBodyTypeMoveRight">&gt;</div>
-							</div>
+						<div class="sfbBodyDialRoot">
+							<img id="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png">
+							<div id="sfbBodyDialMarker" style="left:300px; top:200px;"></div>
 						</div>
-						<div class="sfbBodyWalkStyleRoot">
-							<div class="sfbBodySubTitle">WALK STYLE</div>
-							<div class="sfbBodyWalkStyle">
-								<div id="sfbBodyWalkStyleMoveLeft">&lt;</div>
-								<div id="sfbBodyWalkStyleValue">1</div>
-								<div id="sfbBodyWalkStyleMoveRight">&gt;</div>
-							</div>
-						</div>
-						<div class="sfbBodySkinToneRoot">
-							<div id="sfbBodySkinToneNumber">1</div>
-							<div class="sfbBodySubTitle">SKIN TONE</div>
-							<div class="sfbBodySkinTone">
-								<div id="sfbBodySkinToneMoveLeft">&lt;</div>
-								<div id="sfbBodySkinToneDNA"><img src="/images/skintones.png"  draggable="false"></div>
-								<div id="sfbBodySkinToneDNAMarker"></div>
-								<div id="sfbBodySkinToneMoveRight">&gt;</div>
-							</div>
-						</div>
+						<div class="sfbValueControl" id="sfbBodyType"       minvalue="1" maxvalue="2" label="BODY TYPE" dna="0"></div>
+						<div class="sfbValueControl" id="sfbBodyWalkStyle"  minvalue="1" maxvalue="2" label="WALK STYLE" dna="0"></div>
+						<div class="sfbValueControl" id="sfbBodySkinTone"   minvalue="1" maxvalue="8" label="SKIN TONE" dna="1"></div>
 					</div>
 					<div class="sfbRightPanel"><img id="sfbBodyPortrait" src="/images/portraits/body6.png"></div>
 				</div>
 			</div>
 			<div id="sfbMainFace" class="sfbMainTab" style="display: none;">
 				<div class="sfbPanels">
-					<div class="sfbLeftPanel sfbPanelJustifyVertical">
+					<div class="sfbLeftPanel sfbPanelJustifyVertical sfbPanelPadding sfbValuePanel">
 						<div class='sfbBodyNote'>Note: Face portrait is currently fixed and doesn't change with selected options yet.</div>
 						<div class="sfbValueControl" id="sfbFaceSkinTone"   minvalue="1" maxvalue="8" label="SKIN TONE" dna="1"></div>
 						<div class="sfbValueControl" id="sfbFaceHeadShapes" minvalue="1" maxvalue="1" label="HEAD SHAPES" dna="1"></div>
@@ -100,10 +72,102 @@
 				</div>
 			</div>
 			<div id="sfbMainBackground" class="sfbMainTab" style="display: none;">
-				Background
+				<div class="sfbPanels">
+					<div class="sfbLeftPanel">
+						<img id="sfbBackgroundPortrait" src="/images/portraits/background1.png">
+					</div>
+					<div class="sfbRightPanel sfbPanelPadding">
+						<div id="sfbBackgroundTitle">Chef</div>
+						<div id="sfbBackgroundText">
+							While the undefined masses scarfed down Chunks by the shipload, you catered to those with a more... discerning palate.
+							In your kitchen, countless alien species became true culinary masterpieces.
+						</div>
+						<div class="sfbBackgroundSkillTitle">STARTING SKILLS</div>
+						<div id="sfbBackgroundSkills">
+							<div class="sfbBackgroundSkillPanel">
+								<img src="/images/skills/gastronomy.png">
+								<div class="sfbBackgroundSkillSubTitle">Gastronomy</div>
+								<div class="sfbBackgroundSkillText">You can craft specialty food and drinks and research additonal recipes at a Research Lab.</div>
+							</div>
+							<div class="sfbBackgroundSkillPanel">
+								<img src="/images/skills/dueling.png">
+								<div class="sfbBackgroundSkillSubTitle">Dueling</div>
+								<div class="sfbBackgroundSkillText">Melee weapons do 10% more damage.</div>
+							</div>
+							<div class="sfbBackgroundSkillPanel">
+								<img src="/images/skills/wellness.png">
+								<div class="sfbBackgroundSkillSubTitle">Wellness</div>
+								<div class="sfbBackgroundSkillText">Immediately gain 30 points of health.</div>
+							</div>
+						</div>
+					</div>
+					<div class="sfbRightPanelFixed sfbPanelPadding">
+						<ul id="sfbBackgroundList">
+							<li>Beast Hunter</li>
+							<li>Bouncer</li>
+							<li>Bounty Hunter</li>
+							<li class="sfbBackgroundListSelected">Chef</li>
+							<li>Combat Medic</li>
+							<li>Cyber Runner</li>
+							<li>Cyberneticist</li>
+							<li>Diplomat</li>
+							<li>Explorer</li>
+							<li>Gangster</li>
+							<li>Homesteader</li>
+							<li>Industrialist</li>
+							<li>Long Hauler</li>
+							<li>Pilgrim</li>
+							<li>Professor</li>
+							<li>Ronin</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 			<div id="sfbMainTraits" class="sfbMainTab" style="display: none;">
-				Traits
+				<div class="sfbPanels">
+					<div class="sfbLeftPanelFixed">
+						<img id="sfbTraitPortrait" src="/images/portraits/trait1.png">
+					</div>
+					<div class="sfbRightPanel sfbPanelPadding">
+						<div id="sfbTraitTitle">Introvert</div>
+						<div id="sfbTraitText">
+							You really need your alone time. You have more endurance when adventuring alone, but less when adventuring with other human companions. (Can't be combined with Extrovert).
+						</div>
+						<div id="sfbTraitUsedTitle">TRAITS: 1/3</div>
+						<div class="sfbTraitUsedRow">
+							<img src="/images/traits/introvert.png">
+							<div class="sfbTraitUsedText">Introvert</div>
+						</div>
+						<div class="sfbTraitUsedRow sfbTraitUsedOptional">
+							<img src="" style="display: none;">
+							<div class="sfbTraitUsedText">{OPTIONAL}</div>
+						</div>
+						<div class="sfbTraitUsedRow sfbTraitUsedOptional">
+							<img src="" style="display: none;">
+							<div class="sfbTraitUsedText">{OPTIONAL}</div>
+						</div>
+					</div>
+					<div class="sfbRightPanelFixed sfbPanelPadding">
+						<ul id="sfbTraitList">
+							<li>Alien DNA</li>
+							<li>Empath</li>
+							<li class="sfbTraitListExcluded">Extrovert</li>
+							<li>Freestar Collective Settler</li>
+							<li class="sfbTraitListSelected sfbTraitListChoosen">Introvert</li>
+							<li>Kid Stuff</li>
+							<li>Neon Street Rat</li>
+							<li>Raised Enlightened</li>
+							<li>Raised Universal</li>
+							<li>Serpent's Embrace</li>
+							<li>Spaced</li>
+							<li>Starter House</li>
+							<li>Taskmaster</li>
+							<li>Terra Firma</li>
+							<li>United Colonies Native</li>
+							<li>Unwanted Hero</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="sfbFooterRoot">

@@ -8,6 +8,7 @@ class CSfbValueControl
 	element = null;
 	elementId = null;
 	useDna = false;
+	onValueChangedCallback = null;
 	
 	titleElement = null;
 	rootElement = null;
@@ -17,16 +18,18 @@ class CSfbValueControl
 	dnaElement = null;
 	markerElement = null;
 	
-	constructor(elementId)
+	constructor(elementId, onValueChangedCallback)
 	{
 		this.elementId = elementId;
 		this.element = $("#" + elementId);
 		
 		this.minValue = this.element.attr("minvalue") || 0;
 		this.maxValue = this.element.attr("maxvalue") || 0;
-		this.useDna = !!(this.element.attr("dna") || false);
+		this.useDna = !!(parseInt(this.element.attr("dna")) || false);
 		
 		if (this.value < this.minValue) this.value = this.minValue;
+		
+		this.onValueChangedCallback = onValueChangedCallback;
 		
 		this.createChildElements();
 	}
@@ -55,6 +58,8 @@ class CSfbValueControl
 		
 		this.rootElement.append(this.leftButton, this.textElement, this.rightButton);
 		this.element.append(this.titleElement, this.rootElement);
+		
+		this.element.on("mousedown",  () => { this.onMouseDownRoot(); } )
 	}
 	
 	
@@ -74,9 +79,9 @@ class CSfbValueControl
 		
 		this.titleElement = $("<div />").addClass("sfbValueControlTitle").text(label);
 		this.textElement = $("<div />").addClass("sfbValueControlDnaText").text(this.value);
-		this.dnaElement = $("<img />").addClass("sfbValueControlDnaImage").attr("src", "/images/dna_light.png").attr("draggable", "false");
-		this.dnaElement.click( (e) => { this.onDnaImageClicked(e); } );
+		this.dnaElement = $("<div />").addClass("sfbValueControlDnaImage");
 		this.dnaElement.on("mousemove", (e) => { this.onDnaImageMouseMove(e); } );
+		this.dnaElement.on("mousedown", (e) => { this.onDnaImageMouseMove(e); } );
 		this.markerElement = $("<div />").addClass("sfbValueControlDnaMarker");
 		this.leftButton = $("<div />").addClass("sfbValueControlButton").html("&lt;").click( () => { this.onLeftButtonClicked(); } );
 		this.rightButton = $("<div />").addClass("sfbValueControlButton").html("&gt;").click( () => { this.onRightButtonClicked(); } );
@@ -85,6 +90,15 @@ class CSfbValueControl
 		
 		this.rootElement.append(this.leftButton, this.dnaElement, this.markerElement, this.rightButton);
 		this.element.append(this.textElement, this.titleElement, this.rootElement);
+		
+		this.element.on("mousedown",  () => { this.onMouseDownRoot(); } )
+	}
+	
+	
+	onMouseDownRoot()
+	{
+		$(".sfbValueControlSelected").removeClass("sfbValueControlSelected");
+		this.element.addClass("sfbValueControlSelected");
 	}
 	
 	
@@ -96,6 +110,9 @@ class CSfbValueControl
 		this.textElement.text(this.value);
 		
 		if (this.useDna) this.updateDnaMarker();
+		
+		if (this.onValueChangedCallback) this.onValueChangedCallback(this.value);
+		
 		return true;
 	}
 	
@@ -108,6 +125,9 @@ class CSfbValueControl
 		this.textElement.text(this.value);
 		
 		if (this.useDna) this.updateDnaMarker();
+		
+		if (this.onValueChangedCallback) this.onValueChangedCallback(this.value);
+		
 		return true;
 	}
 	
@@ -120,40 +140,50 @@ class CSfbValueControl
 	
 	onDnaImageClicked(e)
 	{
-		var elm = this.dnaElement;
-		var xPos = e.pageX - elm.offset().left;
-		var yPos = e.pageY - elm.offset().top;
+		var xPos = e.pageX - this.dnaElement.offset().left;
+		var yPos = e.pageY - this.dnaElement.offset().top;
 		
-		console.log(xPos, yPos);
-		
-		var dnaWidth = this.dnaElement.width();
-		var offset = this.dnaElement.offset().left - this.rootElement.offset().left;
-		var newOffset = xPos + offset;
-		var range = this.maxValue - this.minValue;
-		
-		this.markerElement.css("left", newOffset);
-		
+		var range = this.maxValue - this.minValue + 1;
 		if (range <= 0) return;
 		
-		var newValue = Math.round(xPos / dnaWidth * range);
+		var markerWidth = this.markerElement.width();
+		var dnaWidth = this.dnaElement.width();
+		var subDnaWidth = dnaWidth / range;
+		var offset = this.dnaElement.offset().left - this.rootElement.offset().left + 1;
 		
+		var newValue = Math.round(xPos / dnaWidth * range);
 		if (newValue <= this.minValue) newValue = this.minValue;
 		if (newValue >= this.maxValue) newValue = this.maxValue;
 		
-		this.value = newValue;
-		this.textElement.text(this.value);
+		//var newOffset = subDnaWidth * (newValue - this.minValue) + subDnaWidth/2 + offset + markerWidth/2;
+		//console.log(xPos, yPos, dnaWidth, offset, range, newOffset);
+		
+		if (xPos > dnaWidth - markerWidth/2 - 1) xPos = dnaWidth - markerWidth/2 - 1;
+		if (xPos < markerWidth + 1) xPos = markerWidth + 1;
+		xPos += offset + markerWidth/2 + 1;
+		
+		this.markerElement.css("left", xPos);
+		
+		if (this.value != newValue)
+		{
+			this.value = newValue;
+			this.textElement.text(this.value);
+			if (this.onValueChangedCallback) this.onValueChangedCallback(this.value);
+		}
 	}
 	
 	
 	updateDnaMarker()
 	{
-		var offset = this.dnaElement.offset().left - this.rootElement.offset().left;
-		var dnaWidth = this.dnaElement.width();
-		var range = this.maxValue - this.minValue;
-		
+		var range = this.maxValue - this.minValue + 1;
 		if (range <= 0) return;
 		
-		var newOffset = dnaWidth * (this.value - this.minValue) / range + offset;
+		var markerWidth = this.markerElement.width();
+		var offset = this.dnaElement.offset().left - this.rootElement.offset().left + 1;
+		var dnaWidth = this.dnaElement.width();
+		
+		var subDnaWidth = dnaWidth / range;
+		var newOffset = subDnaWidth * (this.value - this.minValue) + subDnaWidth/2 + offset + markerWidth/2;
 		
 		this.markerElement.css("left", newOffset);
 	}
