@@ -8,19 +8,16 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="icon" href="/images/favicon.png" type="image/png" >
 	<script src="scripts/jquery-3.6.0.min.js" ></script>
+	<script src="scripts/controls.js" ></script>
 	<script src="scripts/main.js" ></script>
 </head>
 <body>
 	<div id="sfbBuilderRoot">
 		<div id="sfbHeaderRoot">
 			<div class="sfbSubTitleAELogo"><img src="images/aelogo.png" alt="AE" draggable="false"></div>
-			<div class="sfbTitleLogo">
-				<img src="images/sfbuilder_logo.png" alt="Starfield Builder">
-			</div>
+			<div class="sfbTitleLogo"><img src="images/sfbuilder_logo.png" alt="Starfield Builder"></div>
 			<div class="sfbSubTitleLine"></div>
-			<div class="sfbSubTitle">
-				RECORD LOCATOR
-			</div>
+			<div class="sfbSubTitle">RECORD LOCATOR</div>
 		</div>
 		<div id="sfbWarningRoot">
 			WARNING: This builder is currently under construction with the limited information we know about the game so far and can't yet save builds.
@@ -36,8 +33,8 @@
 		</div>
 		<div id="sfbMainRoot">
 			<div id="sfbMainId" class="sfbMainTab">
-				<div class="sfbIdPanels">
-					<div class="sfbIdLeftPanel">
+				<div class="sfbPanels">
+					<div class="sfbLeftPanel">
 						<div class="sfbTabTitle">SELECT PROFILE</div>
 						<div class="sfbPersonalRecordRoot">
 							<div id="sfbPersonalRecordNumber">1</div>
@@ -49,22 +46,16 @@
 								<div id="sfbPersonalRecordMoveRight">&gt;</div>
 							</div>
 						</div>
-						<div class="sfbTabNote">
-							Note: Biometric customizations can be changed later by visiting a genetics facility.
-						</div>
+						<div class="sfbTabNote">Note: Biometric customizations can be changed later by visiting a genetics facility.</div>
 					</div>
-					<div class="sfbIdRightPanel">
-						<img id="sfbCharacterPortrait" src="/images/portraits/char1.png">
-					</div>
+					<div class="sfbRightPanel"><img id="sfbCharacterPortrait" src="/images/portraits/char1.png"></div>
 				</div>
 			</div>
 			<div id="sfbMainBody" class="sfbMainTab" style="display: none;">
-				<div class="sfbBodyPanels">
-					<div class="sfbBodyLeftPanel">
+				<div class="sfbPanels">
+					<div class="sfbLeftPanel sfbPanelJustifyVertical">
 						<div class='sfbBodyNote'>Note: Body portrait is currently fixed and doesn't change with selected options yet.</div>
-						<div class="sfbBodyDialRoot">
-							<img class="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png">
-						</div>
+						<div class="sfbBodyDialRoot"><img class="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png"></div>
 						<div class="sfbBodyTypeRoot">
 							<div class="sfbBodySubTitle">BODY TYPE</div>
 							<div class="sfbBodyType">
@@ -82,7 +73,7 @@
 							</div>
 						</div>
 						<div class="sfbBodySkinToneRoot">
-						<div id="sfbBodySkinToneNumber">1</div>
+							<div id="sfbBodySkinToneNumber">1</div>
 							<div class="sfbBodySubTitle">SKIN TONE</div>
 							<div class="sfbBodySkinTone">
 								<div id="sfbBodySkinToneMoveLeft">&lt;</div>
@@ -92,13 +83,21 @@
 							</div>
 						</div>
 					</div>
-					<div class="sfbBodyRightPanel">
-						<img id="sfbBodyPortrait" src="/images/portraits/body6.png">
-					</div>
+					<div class="sfbRightPanel"><img id="sfbBodyPortrait" src="/images/portraits/body6.png"></div>
 				</div>
 			</div>
 			<div id="sfbMainFace" class="sfbMainTab" style="display: none;">
-				Face
+				<div class="sfbPanels">
+					<div class="sfbLeftPanel sfbPanelJustifyVertical">
+						<div class='sfbBodyNote'>Note: Face portrait is currently fixed and doesn't change with selected options yet.</div>
+						<div class="sfbValueControl" id="sfbFaceSkinTone"   minvalue="1" maxvalue="8" label="SKIN TONE" dna="1"></div>
+						<div class="sfbValueControl" id="sfbFaceHeadShapes" minvalue="1" maxvalue="1" label="HEAD SHAPES" dna="1"></div>
+						<div class="sfbValueControl" id="sfbFaceHair"       minvalue="1" maxvalue="16" label="HAIR" dna="1"></div>
+						<div class="sfbValueControl" id="sfbFaceHairColor"  minvalue="1" maxvalue="16" label="HAIR COLOR" dna="1"></div>
+						<div class="sfbValueControl" id="sfbFaceEyes"       minvalue="1" maxvalue="8" label="EYES" dna="1"></div>
+					</div>
+					<div class="sfbRightPanel"><img id="sfbFacePortrait" src="/images/portraits/char1.png"></div>
+				</div>
 			</div>
 			<div id="sfbMainBackground" class="sfbMainTab" style="display: none;">
 				Background

@@ -1,3 +1,15 @@
+:root {
+	--sfb-color-dark2: #1f373f;
+	--sfb-color-dark1: #647474;
+	--sfb-color-medium3: #8a9895;
+	--sfb-color-medium2: #98a49c;
+	--sfb-color-medium1: #afbbb4;
+	--sfb-color-light3: #bbc5be;
+	--sfb-color-light2: #c6cfcb;
+	--sfb-color-light1: #d2dcd5;
+	--sfb-color-white: #ffffff;
+}
+
 @font-face {
 	font-family: 'ely_rounded_medium';
 	src: url('/fonts/ely_rounded_medium-webfont.woff2') format('woff2'),
@@ -8,8 +20,8 @@
 
 body {
 	font-family: 'ely_rounded_medium';
-	background-color: #909e96;
-	color: #1c363e;
+	background-color: var(--sfb-color-medium2);
+	color: var(--sfb-color-dark2);
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -29,9 +41,9 @@ body {
 }
 
 .sfbTitleLogo {
-	background-color: #c3ccc5;
-	border-left: 15px solid #1c363e;
-	border-right: 100px solid #acb8b0;
+	background-color: var(--sfb-color-light2);
+	border-left: 15px solid var(--sfb-color-dark2);
+	border-right: 100px solid var(--sfb-color-light3);
 	width: 25%;
 	margin-bottom: 5px
 }
@@ -42,20 +54,20 @@ body {
 }
 
 .sfbSubTitle {
-	background-color: #1c363e;
-	color: #c3ccc5;
+	background-color: var(--sfb-color-dark2);
+	color: var(--sfb-color-light2);
 	height: 15px;
 	width: 25%;
 	font-size: 13px;
-	border-left: 15px solid #1c363e;
-	border-right: 100px solid #1c363e;
-	border-bottom: 3px solid #1c363e;
+	border-left: 15px solid var(--sfb-color-dark2);
+	border-right: 100px solid var(--sfb-color-dark2);
+	border-bottom: 3px solid var(--sfb-color-dark2);
 	white-space: nowrap;
 }
 
 .sfbSubTitleLine {
 	height: 3px;
-	background-color: #1c363e;
+	background-color: var(--sfb-color-dark2);
 	width: 100%;
 }
 
@@ -69,7 +81,7 @@ body {
 	padding: 10px;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	justify-content: flex-start;
 }
 
@@ -82,7 +94,7 @@ body {
 
 .sfbSmallButton {
 	width: 25px;
-	border: 2px solid #1c363e;
+	border: 2px solid var(--sfb-color-dark2);
 	border-radius: 10px;
 	padding: 3px;
 	margin: 5px;
@@ -93,7 +105,7 @@ body {
 }
 
 .sfbButton {
-	border: 1px solid #1c363e;
+	border: 1px solid var(--sfb-color-dark2);
 	padding: 2px;
 	margin: 5px;
 	font-size: 16px;
@@ -105,25 +117,25 @@ body {
 }
 
 .sfbButton:hover {
-	background-color: #bdcbbf;
+	background-color: var(--sfb-color-light3);
 	border: 1px solid #ddebdf;
 }
 
 .sfbSmallButton:hover {
-	background-color: #bdcbbf;
-	border: 2px solid #ddebdf;
+	background-color: var(--sfb-color-light3);
+	border: 2px solid var(--sfb-color-light1);
 }
 
 .sfbButtonSelected {
-	background-color: #adbbaf;
-	border: 1px solid #adbbaf;
+	background-color: var(--sfb-color-medium1);
+	border: 1px solid var(--sfb-color-medium1);
 }
 
 #sfbMainRoot {
-	background-color: #acbcb1;
+	background-color: var(--sfb-color-medium1);
 	flex-grow: 1;
 	min-height: 100px;
-	border-top: 2px solid #cee0d3;
+	border-top: 2px solid var(--sfb-color-light2);
 	display: flex;
 	flex-direction: column;
 }
@@ -135,14 +147,14 @@ body {
 
 #sfbFooterRoot {
 	height: 100px;
-	background-color: #83948f;
+	background-color:  var(--sfb-color-medium3);
 }
 
 .sfbFooter {
 	margin-right: 25px;
 	margin-left: 25px;
-	border-top: 2px solid #1c363e;
-	border-bottom: 2px solid #1c363e;
+	border-top: 2px solid var(--sfb-color-dark2);
+	border-bottom: 2px solid var(--sfb-color-dark2);
 	height: 80px;
 	font-size: 18px;
 	padding-left: 25px;
@@ -158,28 +170,29 @@ body {
 
 .sfbTabTitle {
 	font-size: 24px;
-	color: #76837e;
+	color: var(--sfb-color-dark1);
 	padding-bottom: 25px;
 }
 
-.sfbIdPanels {
+.sfbPanels {
 	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 }
 
-.sfbIdLeftPanel {
+.sfbLeftPanel {
 	position: relative;
 	float: left;
 	height: 100%;
 	box-sizing: border-box;
 	padding: 10px;
 	min-width: 300px;
+	max-width: 600px;
 	flex-grow: 1;
 }
 
-.sfbIdRightPanel {
+.sfbRightPanel {
 	float: right;
 	text-align: center;
 	position: relative;
@@ -187,9 +200,19 @@ body {
 	flex-grow: 1;
 }
 
+.sfbPanelScroll {
+	
+}
+
+.sfbPanelJustifyVertical {
+	justify-content: space-evenly;
+	display: flex;
+	flex-direction: column;
+}
+
 .sfbPersonalRecordRoot {
-	background-color: #1c363e;
-	color: #c3ccc5;
+	background-color: var(--sfb-color-dark2);
+	color: var(--sfb-color-light2);
 	padding: 5px;
 }
 
@@ -221,8 +244,8 @@ body {
 }
 
 #sfbPersonalRecordMoveLeft:hover, #sfbPersonalRecordMoveRight:hover {
-	color: #fff;
-	background-color: #909e96;
+	color: var(--sfb-color-white);
+	background-color: var(--sfb-color-medium3);
 }
 
 .sfbPersonalDNARoot {
@@ -254,8 +277,8 @@ body {
 }
 
 .sfbTabNote {
-	border-top: 1px solid #1c363e;
-	border-bottom: 1px solid #1c363e;
+	border-top: 1px solid var(--sfb-color-dark2);
+	border-bottom: 1px solid var(--sfb-color-dark2);
 	padding-bottom: 25px;
 	margin-bottom: 25px;
 	margin-right: 10px;
@@ -264,7 +287,7 @@ body {
 	bottom: 0;
 }
 
-#sfbCharacterPortrait {
+#sfbCharacterPortrait, #sfbFacePortrait {
 	height: 100%;
 }
 
@@ -300,12 +323,11 @@ body {
 	height: 100%;
 }
 .sfbBodyNote {
-	float: left;
 }
 
 .sfbBodyDialRoot {
 	min-height: 200px;
-	background-color: #bbc5be;
+	background-color: var(--sfb-color-light3);
 	padding: 10px;
 	text-align: center;
 }
@@ -314,11 +336,9 @@ body {
 }
 
 .sfbBodyWalkStyleRoot {
-	height: 50px;
 }
 
 .sfbBodySkinToneRoot {
-	height: 50px;
 }
 
 .sfbBodySubTitle {
@@ -329,7 +349,7 @@ body {
 .sfbBodyType {
 	display: flex;
 	flex-direction: row;
-	background-color: #bbc5be;
+	background-color: var(--sfb-color-light3);
 }
 
 #sfbBodyTypeMoveLeft {
@@ -338,7 +358,7 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
@@ -349,36 +369,36 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
 
 #sfbBodyTypeMoveLeft:hover, #sfbBodyTypeMoveRight:hover {
-	color: #fff;
-	background-color: #909e96;
+	color: var(--sfb-color-white);
+	background-color: var(--sfb-color-medium2);
 }
 
 #sfbBodyTypeValue {
 	padding: 5px;
 	font-size: 20px;
 	flex-grow: 1;
-	color: #6f7572;
+	color: var(--sfb-color-dark1);
 }
 
 .sfbBodyInputSelected {
-	background-color: #1c363e;
-	color: #bbc5be;
+	background-color: var(--sfb-color-dark2);
+	color: var(--sfb-color-light3);
 }
 
 .sfbBodyBoxSelected {
-	border: 1px solid #1c363e;
+	border: 1px solid var(--sfb-color-dark2);
 }
 
 .sfbBodyWalkStyle {
 	display: flex;
 	flex-direction: row;
-	background-color: #bbc5be;
+	background-color: var(--sfb-color-light3);
 }
 
 #sfbBodyWalkStyleMoveLeft {
@@ -387,7 +407,7 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
@@ -398,27 +418,27 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
 
 #sfbBodyWalkStyleMoveLeft:hover, #sfbBodyWalkStyleMoveRight:hover {
-	color: #fff;
-	background-color: #909e96;
+	color: var(--sfb-color-white);
+	background-color: var(--sfb-color-medium3);
 }
 
 #sfbBodyWalkStyleValue {
 	padding: 5px;
 	font-size: 20px;
 	flex-grow: 1;
-	color: #6f7572;
+	color: var(--sfb-color-dark1);
 }
 
 .sfbBodySkinTone {
 	display: flex;
 	flex-direction: row;
-	background-color: #bbc5be;
+	background-color: var(--sfb-color-light3);
 }
 
 #sfbBodySkinToneMoveLeft {
@@ -427,7 +447,7 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
@@ -438,21 +458,21 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	line-height: 20px;
-	color: #e1ebe4;;
+	color: var(--sfb-color-white);
 	padding: 5px;
 	user-select: none;
 }
 
 #sfbBodySkinToneMoveLeft:hover, #sfbBodySkinToneMoveRight:hover {
-	color: #fff;
-	background-color: #909e96;
+	color: var(--sfb-color-white);
+	background-color: var(--sfb-color-medium3);
 }
 
 #sfbBodySkinToneValue {
 	padding: 5px;
 	font-size: 20px;
 	flex-grow: 1;
-	color: #6f7572;
+	color: var(--sfb-color-dark1);
 }
 
 #sfbBodySkinToneDNA {
@@ -486,3 +506,66 @@ body {
 .sfbBodyDialImage {
 	height: 100%;
 }
+
+.sfbValueControl {
+}
+
+.sfbValueControlTitle {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.sfbValueControlRoot {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--sfb-color-light3);
+}
+
+.sfbValueControlText {
+	padding: 5px;
+	font-size: 20px;
+	flex-grow: 1;
+	color: var(--sfb-color-dark1);
+}
+
+.sfbValueControlDnaText {
+	font-size: 20px;
+	float: right;
+}
+
+.sfbValueControlDnaImage {
+	display: inline-block;
+	flex-grow: 1;
+	width: 100%;
+	height: 22px;
+	padding-top: 5px;
+	user-select: none;
+}
+
+.sfbValueControlDnaMarker {
+	position: absolute;
+	height: 22px;
+	width: 8px;
+	filter: brightness(20%);
+	background-color: rgba(150, 250, 250, 0.9);
+	background-blend-mode: multiply;
+	left: 40px;
+	margin-top: 5px;
+}
+
+.sfbValueControlButton {
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+	color: var(--sfb-color-white);
+	padding: 5px;
+	user-select: none;
+}
+
+.sfbValueControlButton:hover {
+	color: var(--sfb-color-white);
+	background-color: var(--sfb-color-medium2);
+}
+

@@ -177,6 +177,10 @@ function sfbChangeCharacterPortrait(characterIndex)
 	$("#sfbCharacterPortrait").attr("src", src).on('error', function() {
 		$("#sfbCharacterPortrait").attr("src", "/images/portraits/missing.png");
 	});
+	
+	$("#sfbFacePortrait").attr("src", src).on('error', function() {
+		$("#sfbFacePortrait").attr("src", "/images/portraits/missing.png");
+	});
 }
 
 
@@ -194,8 +198,20 @@ function sfbSetRandomEmployeeId()
 }
 
 
+function sfbInitializeControls()
+{
+	window.g_sfbFaceSkinToneCtrl = new CSfbValueControl("sfbFaceSkinTone");
+	window.g_sfbFaceHeadShapesCtrl = new CSfbValueControl("sfbFaceHeadShapes");
+	window.g_sfbFaceHairCtrl = new CSfbValueControl("sfbFaceHair");
+	window.g_sfbFaceHairColorCtrl = new CSfbValueControl("sfbFaceHairColor");
+	window.g_sfbFaceEyesCtrl = new CSfbValueControl("sfbFaceEyes");
+}
+
+
 function sfbOnDocumentReady()
 {
+	sfbInitializeControls();
+	
 	sfbSetRandomEmployeeId();
 	
 	$("#sfbButtonRoot .sfbButton").click(sfbOnTabButtonClick);
