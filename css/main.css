@@ -158,6 +158,10 @@ body {
 	background-color:  var(--sfb-color-medium3);
 }
 
+.sfbFooterBox {
+	float: right;
+}
+
 .sfbFooter {
 	margin-right: 25px;
 	margin-left: 25px;
