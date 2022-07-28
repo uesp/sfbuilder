@@ -220,6 +220,10 @@ function sfbChangeCharacterPortrait(characterIndex)
 		$("#sfbCharacterPortrait").attr("src", "/images/portraits/missing.png");
 	});
 	
+	$("#sfbCharacterPortrait1").attr("src", src).on('error', function() {
+		$("#sfbCharacterPortrait1").attr("src", "/images/portraits/missing.png");
+	});
+	
 	$("#sfbFacePortrait").attr("src", src).on('error', function() {
 		$("#sfbFacePortrait").attr("src", "/images/portraits/missing.png");
 	});
@@ -481,8 +485,8 @@ function sfbOnBodyDialMouseMove(e)
 	var xPos = e.pageX - parent.offset().left;
 	var yPos = e.pageY - parent.offset().top;
 	
-	var centerX = image.width()/2 + image.offset().left - 10;
-	var centerY = image.height()/2 + image.offset().top + 15;
+	var centerX = image.width()/2 + image.offset().left - 5;
+	var centerY = image.height()/2 + image.offset().top + 20;
 	
 	var diffX = Math.abs(e.pageX - centerX);
 	var diffY = Math.abs(e.pageY - centerY);
@@ -491,15 +495,79 @@ function sfbOnBodyDialMouseMove(e)
 	
 	//console.log(radius, diffX, diffY, centerX, centerY, xPos, yPos);
 	
-	if (radius > 85) return;
+	if (radius > 80) return;
 	
 	xPos -= marker.width()/2;
 	yPos -= marker.height()/2;
 	
 	marker.css("left", xPos);
 	marker.css("top", yPos);
+}
+
+
+function sfbUpdatePortraitSizes()
+{
+	var width = $("#sfbMainRoot").width();
+	var height = $("#sfbMainRoot").height();
 	
+	var portrait1 = $("#sfbCharacterPortrait");
+	var leftPanel1 = $("#sfbMainId .sfbLeftPanel");
+	var width1 = width - leftPanel1.width();
 	
+	var totalWidth1 = portrait1.width() + leftPanel1.width();
+	
+	if (width < 700)
+	{
+		var newHeight = (width - 500) / (700 - 500) * 100;
+		if (newHeight < 25) newHeight = 25;
+		if (newHeight > 50) newHeight = 50;
+		
+		$("#sfbCharacterPortrait1").css("height", "" + newHeight + "%");
+		
+		$("#sfbCharacterPortrait").parent().hide();
+		$("#sfbCharacterPortrait1").show();
+	}
+	else if (width < 1150)
+	{
+		var newHeight = (width - 500) / (1150 - 500) * 100;
+		if (newHeight < 25) newHeight = 25;
+		if (newHeight > 100) newHeight = 100;
+		
+		portrait1.css("height", "" + newHeight + "%");
+		$("#sfbFacePortrait1").css("height", "" + newHeight + "%");
+		
+		$("#sfbCharacterPortrait").parent().show();
+		$("#sfbCharacterPortrait1").hide();
+	}
+	else 
+	{
+		$("#sfbCharacterPortrait").parent().show();
+		$("#sfbCharacterPortrait1").hide();
+		portrait1.css("height", "100%");
+	}
+	
+	if (width < 1150)
+	{
+		var newHeight = (width - 500) / (1150 - 500) * 100;
+		if (newHeight < 25) newHeight = 25;
+		if (newHeight > 100) newHeight = 100;
+		
+		$("#sfbFacePortrait").css("height", "" + newHeight + "%");
+		$("#sfbBackgroundPortrait").css("height", "" + newHeight + "%");
+		$("#sfbTraitPortrait").css("height", "" + newHeight + "%");
+	}
+	else 
+	{
+		$("#sfbFacePortrait").css("height", "100%");
+		$("#sfbBackgroundPortrait").css("height", "100%");
+		$("#sfbTraitPortrait").css("height", "100%");
+	}
+	
+}
+
+function sfbOnWindowResize(e)
+{
+	sfbUpdatePortraitSizes();
 }
 
 
@@ -532,7 +600,9 @@ function sfbOnDocumentReady()
 	$("#sfbButtonRoot .sfbButton").click(sfbOnTabButtonClick);
 	$(".sfbTraitUsedRow").dblclick(sfbOnTraitChoosenDblClick);
 	$("#sfbBodyDialImage").on("mousemove mousedown", sfbOnBodyDialMouseMove);
-
+	$( window ).resize(sfbOnWindowResize);
+	
+	sfbUpdatePortraitSizes();
 }
 
 

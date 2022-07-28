@@ -38,6 +38,7 @@
 					<div class="sfbLeftPanel sfbPanelPadding sfbValuePanel">
 						<div class="sfbTabTitle">SELECT PROFILE</div>
 						<div class="sfbValueControl" id="sfbPersonnelRecord"  minvalue="1" maxvalue="16" label="BODY TYPE" dna="1"></div>
+						<img id="sfbCharacterPortrait1" src="/images/portraits/char1.png" style="display: none;">
 						<div class="sfbTabNote">Note: Biometric customizations can be changed later by visiting a genetics facility.</div>
 					</div>
 					<div class="sfbRightPanel"><img id="sfbCharacterPortrait" src="/images/portraits/char1.png"></div>
@@ -48,8 +49,10 @@
 					<div class="sfbLeftPanel sfbPanelJustifyVertical sfbPanelPadding sfbValuePanel">
 						<div class='sfbBodyNote'>Note: Body portrait is currently fixed and doesn't change with selected options yet.</div>
 						<div class="sfbBodyDialRoot">
-							<img id="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png">
-							<div id="sfbBodyDialMarker" style="left:300px; top:200px;"></div>
+							<div class="sfbBodyDialRoot1">
+								<img id="sfbBodyDialImage" draggable="false" src="/images/bodytypedial.png">
+								<div id="sfbBodyDialMarker" style="left:94px; top:80px;"></div>
+							</div>
 						</div>
 						<div class="sfbValueControl" id="sfbBodyType"       minvalue="1" maxvalue="2" label="BODY TYPE" dna="0"></div>
 						<div class="sfbValueControl" id="sfbBodyWalkStyle"  minvalue="1" maxvalue="2" label="WALK STYLE" dna="0"></div>
@@ -76,7 +79,7 @@
 					<div class="sfbLeftPanel">
 						<img id="sfbBackgroundPortrait" src="/images/portraits/background1.png">
 					</div>
-					<div class="sfbRightPanel sfbPanelPadding">
+					<div class="sfbRightPanel sfbPanelPadding" style="min-width: 500px;">
 						<div id="sfbBackgroundTitle">Chef</div>
 						<div id="sfbBackgroundText">
 							While the undefined masses scarfed down Chunks by the shipload, you catered to those with a more... discerning palate.

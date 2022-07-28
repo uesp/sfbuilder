@@ -6,7 +6,6 @@
 	--sfb-color-medium1: #afbbb4;
 	--sfb-color-light3: #bbc5be;
 	--sfb-color-light2: #c6cfcb;
-	--sfb-color-light1: #d2dcd5;
 	--sfb-color-white: #ffffff;
 	--sfb-color-greendark: #788e71;
 	--sfb-color-greenmedium: #91a18d;
@@ -215,6 +214,7 @@ body {
 	height: 100%;
 	box-sizing: border-box;
 	flex-grow: 1;
+	min-width: 300px;
 }
 
 .sfbRightPanelFixed {
@@ -255,13 +255,17 @@ body {
 	bottom: 0;
 }
 
-#sfbCharacterPortrait, #sfbFacePortrait {
+#sfbCharacterPortrait, #sfbFacePortrait, #sfbBodyPortrait, #sfbBackgroundPortrait, #sfbTraitPortrait {
 	height: 100%;
+	user-select: none;
 }
 
-#sfbBodyPortrait {
-	height: 100%;
+#sfbCharacterPortrait1 {
+	user-select: none;
+	position: absolute;
+	z-index: 10;
 }
+
 .sfbBodyNote {
 }
 
@@ -270,6 +274,12 @@ body {
 	background-color: var(--sfb-color-light3);
 	padding: 10px;
 	text-align: center;
+}
+
+.sfbBodyDialRoot1 {
+	display: inline-block;
+	position: relative;
+	margin-top: 10px;
 }
 
 .sfbBodySubTitle {
@@ -384,10 +394,6 @@ body {
 	color: var(--sfb-color-light3);
 }
 
-#sfbBackgroundPortrait {
-	height: 100%
-}
-
 #sfbBackgroundTitle {
 	font-size: 26px;
 	text-align: left;
@@ -478,10 +484,6 @@ body {
 	font-size: 16px;
 	padding: 3px;
 	text-align: left;
-}
-
-#sfbTraitPortrait {
-	height: 100%
 }
 
 #sfbTraitTitle {
