@@ -474,8 +474,24 @@ function sfbUpdateTraitCount()
 }
 
 
-function sfbOnBodyDialMouseMove(e)
+function sfbOnBodyDialMouseMove(e, touch)
 {
+	if ($.isTouchCapable())
+	{
+		if (touch == null) return;
+		
+		if (e.type == "tapmove")
+		{
+			e.buttons = 1;
+			e.pageX = touch.position.x;
+			e.pageY = touch.position.y;
+		}
+	}
+	else
+	{
+		if (e.type == "tapmove") return;
+	}
+	
 	if (e.buttons != 1) return;
 	
 	var image = $("#sfbBodyDialImage");
@@ -486,7 +502,7 @@ function sfbOnBodyDialMouseMove(e)
 	var yPos = e.pageY - parent.offset().top;
 	
 	var centerX = image.width()/2 + image.offset().left - 5;
-	var centerY = image.height()/2 + image.offset().top + 20;
+	var centerY = image.height()/2 + image.offset().top + 12;
 	
 	var diffX = Math.abs(e.pageX - centerX);
 	var diffY = Math.abs(e.pageY - centerY);
@@ -495,7 +511,7 @@ function sfbOnBodyDialMouseMove(e)
 	
 	//console.log(radius, diffX, diffY, centerX, centerY, xPos, yPos);
 	
-	if (radius > 80) return;
+	if (radius > 75) return;
 	
 	xPos -= marker.width()/2;
 	yPos -= marker.height()/2;
@@ -518,8 +534,8 @@ function sfbUpdatePortraitSizes()
 	
 	if (width < 700)
 	{
-		var newHeight = (width - 500) / (700 - 500) * 100;
-		if (newHeight < 25) newHeight = 25;
+		var newHeight = (width - 200) / (700 - 200) * 100;
+		if (newHeight < 40) newHeight = 40;
 		if (newHeight > 50) newHeight = 50;
 		
 		$("#sfbCharacterPortrait1").css("height", "" + newHeight + "%");
@@ -596,10 +612,10 @@ function sfbOnDocumentReady()
 	
 	$("#sfbBackgroundList li").click(sfbOnBackgroundListClick);
 	$("#sfbTraitList li").click(sfbOnTraitListClick);
-	$("#sfbTraitList li").dblclick(sfbOnTraitListDblClick);
+	$("#sfbTraitList li").on("dblclick doubletap", sfbOnTraitListDblClick);
 	$("#sfbButtonRoot .sfbButton").click(sfbOnTabButtonClick);
-	$(".sfbTraitUsedRow").dblclick(sfbOnTraitChoosenDblClick);
-	$("#sfbBodyDialImage").on("mousemove mousedown", sfbOnBodyDialMouseMove);
+	$(".sfbTraitUsedRow").on("dblclick doubletap", sfbOnTraitChoosenDblClick);
+	$("#sfbBodyDialImage").on("mousemove mousedown tapmove", sfbOnBodyDialMouseMove);
 	$( window ).resize(sfbOnWindowResize);
 	
 	sfbUpdatePortraitSizes();

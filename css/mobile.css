@@ -1,0 +1,278 @@
+.sfbSmallButton {
+	display: none;
+}
+
+.sfbButton {
+	padding: 1px;
+	margin: 3px;
+	font-size: 14px;
+}
+
+#sfbHeaderRoot {
+	padding: 2px;
+}
+
+.sfbSubTitle {
+	display: none;
+}
+
+.sfbTitleLogo {
+	margin-bottom: 0px;
+}
+
+.sfbSubTitleAELogo {
+	top: 5px;
+}
+
+.sfbHeaderLink {
+	background-color: var(--sfb-color-dark2);
+	color: var(--sfb-color-light1);
+	float: left;
+	padding-left: 3px;
+	padding-right: 5px;
+	font-size: 15px;
+}
+
+.sfbHeaderLink a {
+	color: lightblue;
+}
+
+#sfbWarningRoot {
+	font-size: 12px;
+}
+
+#sfbButtonRoot {
+	padding: 2px;
+}}
+
+#sfbMainBackground {
+	padding-left: 0;
+}
+
+.sfbValuePanel {
+	min-width: 200px;
+}
+
+.sfbPanelPadding {
+	padding: 5px;
+}
+
+.sfbValueControlRoot {
+	padding: 2px;
+}
+
+.sfbValueControlDnaText {
+	font-size: 16px;
+	padding: 2px;
+}
+
+.sfbValueControlTitle {
+	font-size: 16px;
+	padding: 2px;
+}
+
+.sfbBodyDialRoot {
+	padding: 0px;
+}
+
+.sfbRightPanel {
+	min-width: 200px;
+	text-align: left;
+}
+
+#sfbMainBackground .sfbLeftPanel {
+	display: none;
+}
+
+#sfbMainTraits .sfbLeftPanelFixed {
+	display: none;
+}
+
+.sfbTabNote {
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	margin-right: 3px;
+	padding-top: 5px;
+	font-size: 14px;
+}
+}
+
+#sfbPanelPadding {
+	padding: 5px;
+}
+
+#sfbBackgroundTitle {
+	padding: 5px;
+}
+
+#sfbBackgroundText {
+	padding: 5px;
+	font-size: 15px;
+}
+
+.sfbBackgroundSkillTitle {
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: 3px;
+}
+
+#sfbBackgroundSkills {
+	padding: 5px;
+}
+
+#sfbBackgroundList {
+	padding: 0;
+	margin: 0;
+}
+
+#sfbBackgroundSkills {
+	padding: 1px;
+}
+
+.sfbBackgroundSkillPanel img {
+	padding: 0;
+	width: 75px;
+}
+
+.sfbBackgroundSkillPanel {
+	margin: 1px;
+	min-width: 80px;
+}
+
+#sfbFooterRoot {
+	height: 50px;
+}
+
+.sfbEmployeeNumber {
+	padding-left: 3px;
+}
+
+.sfbFooter {
+	margin-right: 5px;
+	margin-left: 5px;
+	border-top: 2px solid var(--sfb-color-dark2);
+	border-bottom: 2px solid var(--sfb-color-dark2);
+	height: 40px;
+	font-size: 13px;
+	padding-left: 5px;
+	vertical-align: middle;
+	line-height: 18px;
+}
+
+.sfbFooterBox {
+	font-size: 14px;
+}
+
+#sfbTraitTitle {
+	font-size: 22px;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 2px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#sfbTraitText {
+	font-size: 16px;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+}
+
+.sfbBackgroundSkillTitle {
+	font-size: 18px;
+	min-width: 240px;
+}
+
+.sfbBackgroundSkillSubTitle {
+	font-size: 16px;
+	min-height: 42px;
+}
+
+.sfbBackgroundSkillText {
+	min-height: 200px;
+}
+
+#sfbTraitUsedTitle {
+	padding: 1px;
+	font-size: 18px;
+	border: 2px solid var(--sfb-color-greendark);
+	text-align: left;
+	margin-left: 5px;
+	margin-right: 3px;
+	margin-top: 3px;
+}
+
+.sfbTraitUsedRow {
+	padding: 1px;
+	text-align: left;
+	margin-left: 5px;
+	margin-right: 3px;
+	margin-top: -1px;
+	height: 64px;
+	line-height: 64px;
+	padding-left: 2px;
+}
+
+.sfbValueControlText {
+	padding: 1px;
+}
+
+.sfbBodyNote {
+	font-size: 14px;
+}
+
+.sfbValueControlButton {
+	padding: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	line-height: 18px;
+}
+
+.sfbValueControlDnaImage {
+	margin-top: 1px;
+}
+
+.sfbValueControlDnaMarker  {
+	margin-top: 1px;
+}
+
+.sfbMainTab {
+	padding-left: 2px;
+}
+
+.sfbBackgroundSkillsRoot {
+	bottom: 2px;
+}
+
+.sfbTraitUsedRoot {
+	bottom: 2px;
+}
+
+#sfbBackgroundList li {
+	font-size: 16px;
+}
+
+.sfbPanelMedWidth {
+	min-width: 300px;
+}
+
+#sfbTraitList {
+	padding: 0;
+	margin: 0;
+}
+
+#sfbTraitList li {
+	font-size: 14px;
+}
+
+.sfbTraitListChoosen:before {
+	left: 8px;
+	margin-top: 0px;
+}
+
+.sfbTraitListExcluded:before {
+	left: 8px;
+	margin-top: 0px;
+}
