@@ -619,3 +619,8 @@ body {
 	bottom: 25px;
 	width: 100%;
 }
+
+#sfbTraitPortrait1 {
+	display: none;
+	user-select: none;
+}
