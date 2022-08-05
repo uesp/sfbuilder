@@ -80,8 +80,7 @@ class CSfbValueControl
 		this.titleElement = $("<div />").addClass("sfbValueControlTitle").text(label);
 		this.textElement = $("<div />").addClass("sfbValueControlDnaText").text(this.value);
 		this.dnaElement = $("<div />").addClass("sfbValueControlDnaImage");
-		this.dnaElement.on("mousemove tapmove", (e, touch) => { this.onDnaImageMouseMove(e, touch); } );
-		this.dnaElement.on("mousedown", (e, touch) => { this.onDnaImageMouseMove(e, touch); } );
+		this.dnaElement.on("mousemove mousedown tapmove tapstart", (e, touch) => { this.onDnaImageMouseMove(e, touch); } );
 		this.markerElement = $("<div />").addClass("sfbValueControlDnaMarker");
 		this.leftButton = $("<div />").addClass("sfbValueControlButton").html("&lt;").click( () => { this.onLeftButtonClicked(); } );
 		this.rightButton = $("<div />").addClass("sfbValueControlButton").html("&gt;").click( () => { this.onRightButtonClicked(); } );
@@ -134,7 +133,7 @@ class CSfbValueControl
 	
 	onDnaImageMouseMove(e, touch)
 	{
-		if (e.buttons == 1 || e.type == "tapmove") this.onDnaImageClicked(e, touch);
+		if (e.buttons == 1 || e.type == "tapmove" || e.type == "tapstart") this.onDnaImageClicked(e, touch);
 	}
 	
 	
@@ -144,7 +143,7 @@ class CSfbValueControl
 		{
 			if (touch == null) return;
 			
-			if (e.type == "tapmove")
+			if (e.type == "tapmove" || e.type == "tapstart")
 			{
 				e.buttons = 1;
 				e.pageX = touch.position.x;
@@ -153,7 +152,7 @@ class CSfbValueControl
 		}
 		else
 		{
-			if (e.type == "tapmove") return;
+			if (e.type == "tapmove" || e.type == "tapstart") return;
 		}
 		
 		var xPos = e.pageX - this.dnaElement.offset().left;

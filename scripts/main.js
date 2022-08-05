@@ -480,7 +480,7 @@ function sfbOnBodyDialMouseMove(e, touch)
 	{
 		if (touch == null) return;
 		
-		if (e.type == "tapmove")
+		if (e.type == "tapmove" || e.type == "tapstart")
 		{
 			e.buttons = 1;
 			e.pageX = touch.position.x;
@@ -489,7 +489,7 @@ function sfbOnBodyDialMouseMove(e, touch)
 	}
 	else
 	{
-		if (e.type == "tapmove") return;
+		if (e.type == "tapmove" || e.type == "tapstart") return;
 	}
 	
 	if (e.buttons != 1) return;
@@ -615,7 +615,7 @@ function sfbOnDocumentReady()
 	$("#sfbTraitList li").on("dblclick doubletap", sfbOnTraitListDblClick);
 	$("#sfbButtonRoot .sfbButton").click(sfbOnTabButtonClick);
 	$(".sfbTraitUsedRow").on("dblclick doubletap", sfbOnTraitChoosenDblClick);
-	$("#sfbBodyDialImage").on("mousemove mousedown tapmove", sfbOnBodyDialMouseMove);
+	$("#sfbBodyDialImage").on("mousemove mousedown tapmove tapstart", sfbOnBodyDialMouseMove);
 	$( window ).resize(sfbOnWindowResize);
 	
 	sfbUpdatePortraitSizes();

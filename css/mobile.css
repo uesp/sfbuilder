@@ -50,7 +50,7 @@
 }
 
 .sfbValuePanel {
-	min-width: 200px;
+	min-width: 235px;
 }
 
 .sfbPanelPadding {
@@ -73,6 +73,7 @@
 
 .sfbBodyDialRoot {
 	padding: 0px;
+	min-width: 225px;
 }
 
 .sfbRightPanel {
@@ -102,12 +103,13 @@
 }
 
 #sfbBackgroundTitle {
-	padding: 5px;
+	padding: 3px;
+	font-size: 22px;
 }
 
 #sfbBackgroundText {
 	padding: 5px;
-	font-size: 15px;
+	font-size: 13px;
 }
 
 .sfbBackgroundSkillTitle {
@@ -173,7 +175,7 @@
 }
 
 #sfbTraitText {
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left;
 	padding-left: 5px;
 	padding-right: 3px;
@@ -186,12 +188,13 @@
 }
 
 .sfbBackgroundSkillSubTitle {
-	font-size: 16px;
+	font-size: 14px;
 	min-height: 42px;
 }
 
 .sfbBackgroundSkillText {
 	min-height: 200px;
+	font-size: 13px;
 }
 
 #sfbTraitUsedTitle {
@@ -255,7 +258,7 @@
 }
 
 .sfbPanelMedWidth {
-	min-width: 300px;
+	min-width: 250px;
 }
 
 #sfbTraitList {
@@ -279,7 +282,22 @@
 
 #sfbTraitPortrait1 {
 	display: block;
-	width: 300px;
+	width: 200px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.sfbTraitUsedRow {
+	line-height: 34px;
+	height: 34px;
+}
+
+.sfbTraitUsedRow img {
+	height: 32px;
+	width: 32px;
+}
+
+.sfbTraitUsedText {
+	font-size: 14px;
+}
 }
